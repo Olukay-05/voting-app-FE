@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 import getFormValues  from '../../utils/form-values/FormValues';
+
+import axios from "axios"
 import "../admin-dashboard/Admin-dashboard.css";
 
 const AdminRegistration = () => {
@@ -19,6 +21,18 @@ const AdminRegistration = () => {
     }
 
     console.log(data)
+
+    
+    axios.post("https://localhost:8080/api/v1/admin/candidate-addition", {
+        fullName: "olukayode",
+        email: "olukay@gmail.com"
+    })
+    .then((response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
     e.currentTarget.reset();
   }  
@@ -40,7 +54,7 @@ const AdminRegistration = () => {
                     <input
                         id="name"
                         type="text"
-                        name="name"
+                        name="fullName"
                         className="form-input"
                     />
 
