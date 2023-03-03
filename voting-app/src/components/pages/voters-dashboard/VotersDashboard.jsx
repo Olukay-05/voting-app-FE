@@ -29,7 +29,7 @@ const VotersDashboard = () => {
             <p>1</p>
             <fieldset class="question" name="html-question-one">
               <legend>
-                Kindly click the checkbox to vote this candidate
+                Kindly click the checkbox to vote this candidate (Candidate Name)
               </legend>
 
               <ul class="answers-list">

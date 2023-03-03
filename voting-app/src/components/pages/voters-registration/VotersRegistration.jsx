@@ -1,11 +1,13 @@
 import React from 'react'
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom"
 import getFormValues  from '../../utils/form-values/FormValues';
 import "../admin-dashboard/Admin-dashboard.css";
 
 const VotersRegistration = () => {
 
     const [isVoter, setIsVoter] = useState(false);
+    const navigate = useNavigate();
 
 
   const onSubmit = (e) => {
@@ -20,7 +22,9 @@ const VotersRegistration = () => {
 
     console.log(data)
 
-    e.currentTarget.reset();
+    navigate("/VotersDashboard");
+
+    
   }  
 
    
@@ -28,7 +32,7 @@ const VotersRegistration = () => {
     <section className="register-page full-page">
         <form className="form" onSubmit={ onSubmit }>
 
-            <h3>{ isVoter ? "View Your Vote" : "Login to Vote" }</h3>
+            <h3>{ isVoter ? "View Your Vote" : "Register to Vote" }</h3>
 
             {!isVoter && (
 
