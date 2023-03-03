@@ -1,9 +1,10 @@
-const Navbar = ({text, ...props}) => {
+import "./navbar.css";
+
+const Navbar = ({...props}) => {
+
     return ( 
         <div>
-            <ul>
-                <li><a href=""></a></li>
-            </ul>
+           {props.children}
         </div>
      );
 }
