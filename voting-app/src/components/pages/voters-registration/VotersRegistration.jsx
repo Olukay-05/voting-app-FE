@@ -55,12 +55,12 @@ const VotersRegistration = () => {
             <div className="form-row">
 
                     <label htmlFor="name" className="form-label">
-                        Gender:
+                        Token:
                     </label>
                     <input
-                        id="gender"
+                        id="token"
                         type="text"
-                        name="name"
+                        name="token"
                         className="form-input"
                     />
 
