@@ -30,12 +30,12 @@ const VotersRegistration = () => {
 
     // const fullNameRegex = /^[a-zA-Z].*[\s\.]*$/;
 
-    const fullNameRegex = /^[A-Z][a-z]+\s[a-zA-Z\s\.]+/;
+    // const fullNameRegex = /^[A-Z][a-z]+\s[a-zA-Z\s\.]+/;
 
-    if(!fullNameRegex.test(fullName)) {
-        alert("Please enter a valid email");
-        return;
-    }
+    // if(!fullNameRegex.test(fullName)) {
+    //     alert("Please enter a valid Name");
+    //     return;
+    // }
 
     // Validate token
     const token = data.token.trim();
@@ -51,11 +51,11 @@ const VotersRegistration = () => {
       return;
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!emailRegex.test(email)) {
-      alert("Please enter a valid email");
-      return;
-    }
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if(!emailRegex.test(email)) {
+    //   alert("Please enter a valid email");
+    //   return;
+    // }
 
 
     // axios.get('https://api.example.com/data', {
