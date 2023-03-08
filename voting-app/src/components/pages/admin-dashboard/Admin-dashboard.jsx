@@ -9,7 +9,7 @@ const AdminRegistration = () => {
 
     const [isCandidate, setIsCanditate] = useState(false);
     const [isRegisteredVoter, setisRegisteredVoter] = useState(false);
-
+    const [regVoter, setRegVoter] = useState(false)
 
 
     const candidateData = async (result) => {
@@ -68,63 +68,21 @@ const AdminRegistration = () => {
     e.currentTarget.reset();
   }  
 
+  const selectVoter = () =>{
+        setRegVoter(true)
+  }
+  const selectCandiate = () =>{
+    setRegVoter(false)
+}
    
   return (
     <section className="register-page-full-page">
-        <form className="form" onSubmit={ onSubmit }>
-
-            <h3>{ isCandidate ? "View Candidate" : "Canditate Registration" }</h3>
-
-            {!isCandidate && (
-
-                <div className="form-row">
-
-                    <label htmlFor="name" className="form-label">
-                        Full Name:
-                    </label>
-                    <input
-                        id="name"
-                        type="text"
-                        name="fullName"
-                        className="form-input"
-                    />
-
-                </div>
-            )}
-
-
-            <div className="form-row">
-
-                <label htmlFor="email" className="form-label">
-                    Email:
-                </label>
-
-                <input 
-                    id="email"
-                    type="email"
-                    name="email"
-                    className="form-input"
-                />
-            </div>
-
-            <button type="submit" className="btn btn-block">
-                Submit
-            </button>
-            
-            <p>
-                { isCandidate ? "Not a Candidate yet?" : "Already a Candidate?" }
-
-                <button
-                    type="button"
-                    onClick={ () => setIsCanditate( !isCandidate ) }
-                    className="member-btn"
-                >
-
-                 {isCandidate ? "Register as Canditate" : "View Candidate"}
-                </button>
-            </p>
-        </form>
-
+        <div>
+            <h3 onClick={selectCandiate}> Register Candidate</h3>
+            <h3 onClick={selectVoter}>Register Voter</h3>
+        </div>
+        {regVoter 
+        ?
 
         <form className="form" onSubmit={ onSubmitVoter }>
 
@@ -179,6 +137,62 @@ const AdminRegistration = () => {
                 </button>
             </p>
         </form>
+        :
+        <form className="form" onSubmit={ onSubmit }>
+
+            <h3>{ isCandidate ? "View Candidate" : "Canditate Registration" }</h3>
+
+            {!isCandidate && (
+
+                <div className="form-row">
+
+                    <label htmlFor="name" className="form-label">
+                        Full Name:
+                    </label>
+                    <input
+                        id="name"
+                        type="text"
+                        name="fullName"
+                        className="form-input"
+                    />
+
+                </div>
+            )}
+
+
+            <div className="form-row">
+
+                <label htmlFor="email" className="form-label">
+                    Email:
+                </label>
+
+                <input 
+                    id="email"
+                    type="email"
+                    name="email"
+                    className="form-input"
+                />
+            </div>
+
+            <button type="submit" className="btn btn-block">
+                Submit
+            </button>
+            
+            <p>
+                { isCandidate ? "Not a Candidate yet?" : "Already a Candidate?" }
+
+                <button
+                    type="button"
+                    onClick={ () => setIsCanditate( !isCandidate ) }
+                    className="member-btn"
+                >
+
+                 {isCandidate ? "Register as Canditate" : "View Candidate"}
+                </button>
+            </p>
+        </form>
+
+        }
     </section>
   )
 }
