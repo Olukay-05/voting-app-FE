@@ -1,4 +1,5 @@
-import React, { useState, useNavigate } from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom"
 import FormInput from '../../../reuseable-components/dashboard-reuseables/form-input/FormInput';
 
 const AdminLogin = () => {
@@ -28,7 +29,7 @@ const AdminLogin = () => {
 
   return (
     <div>
-      <form onSubmit={ handleSubmit }>
+      <form onSubmit={ handleSubmit } className="form">
         <FormInput 
           label= "Admin Username"
           type="text"

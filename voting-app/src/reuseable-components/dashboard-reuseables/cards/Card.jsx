@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-const card = ( { candidate, onCheckboxChange } ) => {
+
+
+const Card = ( { candidate, onRadioChange } ) => {
 
     const { imageUrl, id, fullName, email, numberOfVotes  } = candidate;
+
+    const [isChecked, setIsChecked] = useState(false);
+
+
+    const handleRadioChange = () => {
+        setIsChecked(true);
+        onRadioChange(candidate.id);
+      };
+
 
   return (
     <div className="card">
@@ -22,14 +33,15 @@ const card = ( { candidate, onCheckboxChange } ) => {
 
                 <div className="form-check">
                     <input 
-                        type="checkbox"
+                        type="radio"
                         className="form-check-input"
-                        id={ `checkbox-${ candidate.id }` }
+                        id={ `radio-${ candidate.id }` }
                         name={ numberOfVotes }
-                        onChange={ () => onCheckboxChange( candidate.id ) }
+                        checked={isChecked}
+                        onChange={ handleRadioChange }
                     />
 
-                    <label className="form-check-label" htmlFor={`checkbox-${ candidate.id }`}>
+                    <label className="form-check-label" htmlFor={`radio-${ candidate.id }`}>
                         Vote for { fullName }
                     </label>
                 </div>
@@ -39,4 +51,4 @@ const card = ( { candidate, onCheckboxChange } ) => {
   )
 }
 
-export default card;
+export default Card;

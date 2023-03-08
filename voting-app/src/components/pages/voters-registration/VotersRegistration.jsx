@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
 import getFormValues  from '../../utils/form-values/FormValues';
 import "../admin-dashboard/Admin-dashboard.css";
 
@@ -19,6 +20,56 @@ const VotersRegistration = () => {
         alert("Please fill all the fields");
         return;
     }
+
+    // Validate full name
+    const fullName = data.name.trim();
+    if(fullName === "") {
+      alert("Please enter your full name");
+      return;
+    }
+
+    // const fullNameRegex = /^[a-zA-Z].*[\s\.]*$/;
+
+    const fullNameRegex = /^[A-Z][a-z]+\s[a-zA-Z\s\.]+/;
+
+    if(!fullNameRegex.test(fullName)) {
+        alert("Please enter a valid email");
+        return;
+    }
+
+    // Validate token
+    const token = data.token.trim();
+    if(token === "") {
+      alert("Please enter your token");
+      return;
+    }
+
+    // Validate email
+    const email = data.email.trim();
+    if(email === "") {
+      alert("Please enter your email");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(email)) {
+      alert("Please enter a valid email");
+      return;
+    }
+
+
+    // axios.get('https://api.example.com/data', {
+    //     headers: {
+    //         'Authorization': `Bearer ${token}`,
+    //         'Content-Type': 'application/json',
+    //         'Email': email,
+    //     }
+    // })
+    // .then(response => console.log(response.data))
+    // .catch(error => console.error(error));
+
+
+
 
     console.log(data)
 
@@ -54,7 +105,7 @@ const VotersRegistration = () => {
 
             <div className="form-row">
 
-                    <label htmlFor="name" className="form-label">
+                    <label htmlFor="token" className="form-label">
                         Token:
                     </label>
                     <input
