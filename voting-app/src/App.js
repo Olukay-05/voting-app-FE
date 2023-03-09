@@ -6,6 +6,7 @@ import Home from "./routes/home/home";
 import VotersDashboard from "./components/pages/voters-dashboard/VotersDashboard";
 import AdminLogin from "./components/pages/admin-login/AdminLogin";
 import AdminRegistration from "./components/pages/admin-dashboard/Admin-dashboard";
+import Results from "./components/pages/voting-result/Results";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="VotersDashboard" element={ <VotersDashboard /> }/>
         <Route path="AdminLogin" element={ <AdminLogin /> }/>
         <Route path="AdminRegistration" element={ <AdminRegistration /> }/>
+        <Route path="Results" element={ <Results /> }/>
       </Route>
    </Routes>
       

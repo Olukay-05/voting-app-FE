@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom"
+import axios from 'axios';
+
 import FormInput from '../../../reuseable-components/dashboard-reuseables/form-input/FormInput';
 
 const AdminLogin = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(true)
 
   const navigate = useNavigate();
 
@@ -18,18 +21,37 @@ const AdminLogin = () => {
   };
 
 
+
+
+  const login = async (adminlogin) => {
+    try{
+         const res = await axios.post("http://localhost:8080/api/v1/admin/admin-login", adminlogin)
+         console.log(res)
+         setError(false) 
+       }catch(error){
+         alert("Invalid email or password")
+      };
+}
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // do something with the username and password
-
-    navigate("/AdminRegistration");
+    const adminDetails = {
+      name: username,
+      password: password
+    }
+    
+    login(adminDetails)
+    if (!error){
+      navigate("/AdminRegistration")
+    }
   };
 
 
 
   return (
     <div>
-      <form onSubmit={ handleSubmit } className="form">
+      <form className="form">
         <FormInput 
           label= "Admin Username"
           type="text"
@@ -46,7 +68,7 @@ const AdminLogin = () => {
           onChange={ handlePasswordChange }
         />
 
-        <button type="submit" className="btn btn-primary">Login</button>
+        <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Login</button>
       </form>
     </div>
   )
