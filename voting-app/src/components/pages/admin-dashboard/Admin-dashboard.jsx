@@ -12,18 +12,19 @@ const AdminRegistration = () => {
     const [regVoter, setRegVoter] = useState(false)
 
 
+
     const candidateData = async (result) => {
         try{
              const res = await axios.post("http://localhost:8080/api/v1/admin/candidate-addition", result)
              console.log(res.data);
            }catch(error){
-             console.log(error);
+             alert("Candidate Already Exist")
           };
     }
 
-    const VotersData = async (result) => {
+    const VotersData = async (votersList) => {
         try{
-             const res = await axios.post("https://6669-102-88-62-110.eu.ngrok.io/api/v1/admin/candidate-addition", result)
+             const res = await axios.post("http://localhost:8080/api/v1/admin/nonCandidate-addition", votersList)
              console.log(res.data);
            }catch(error){
              console.log(error);

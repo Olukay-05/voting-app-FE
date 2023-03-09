@@ -58,20 +58,27 @@ const VotersRegistration = () => {
     // }
 
 
-    // axios.get('https://api.example.com/data', {
-    //     headers: {
-    //         'Authorization': `Bearer ${token}`,
-    //         'Content-Type': 'application/json',
-    //         'Email': email,
-    //     }
+    // axios.post("http://localhost:8080/api/v1/admin/display-result", result{
+       
     // })
-    // .then(response => console.log(response.data))
-    // .catch(error => console.error(error));
+    //     .then(response => console.log(response.data))
+    //     .catch(error => console.error(error));
 
 
+    const VoterLogin = async (votersList) => {
+        try{
+             const res = await axios.post("http://localhost:8080/api/v1/admin/confirmNonCandidateToken", votersList)
+             console.log(res.data);
+           }catch(error){
+             console.log(error);
+          };
+    }
 
 
+    VoterLogin(data)
     console.log(data)
+
+    
 
     navigate("/VotersDashboard");
 
@@ -87,19 +94,34 @@ const VotersRegistration = () => {
 
             {!isVoter && (
 
+                // <div className="form-row">
+
+                //     <label htmlFor="name" className="form-label">
+                //         Full Name:
+                //     </label>
+                //     <input
+                //         id="name"
+                //         type="text"
+                //         name="name"
+                //         className="form-input"
+                //     />
+
+                // </div>
+
+                
                 <div className="form-row">
 
-                    <label htmlFor="name" className="form-label">
-                        Full Name:
+                    <label htmlFor="email" className="form-label">
+                        Email:
                     </label>
-                    <input
-                        id="name"
-                        type="text"
-                        name="name"
+
+                    <input 
+                        id="email"
+                        type="email"
+                        name="email"
                         className="form-input"
                     />
-
-                </div>
+                 </div>
             )}
 
 
@@ -118,7 +140,7 @@ const VotersRegistration = () => {
                 </div>
 
 
-            <div className="form-row">
+            {/* <div className="form-row">
 
                 <label htmlFor="email" className="form-label">
                     Email:
@@ -130,7 +152,7 @@ const VotersRegistration = () => {
                     name="email"
                     className="form-input"
                 />
-            </div>
+            </div> */}
 
             <button type="submit" className="btn btn-block">
                 Submit
