@@ -8,7 +8,20 @@ import "../admin-dashboard/Admin-dashboard.css";
 const VotersRegistration = () => {
 
     const [isVoter, setIsVoter] = useState(false);
+   // const [id, setId] = useState()
     const navigate = useNavigate();
+
+    
+
+    const VoterLogin = async (votersList) => {
+        try{
+             const res = await axios.post("http://localhost:8080/api/v2/voting/nonCandidate", votersList)
+            console.log(res)
+
+           }catch(error){
+             alert("Invalid token or mail")
+          };
+    }
 
 
   const onSubmit = (e) => {
@@ -21,12 +34,12 @@ const VotersRegistration = () => {
         return;
     }
 
-    // Validate full name
-    const fullName = data.name.trim();
-    if(fullName === "") {
-      alert("Please enter your full name");
-      return;
-    }
+    // // Validate full name
+    // const fullName = data.name.trim();
+    // if(fullName === "") {
+    //   alert("Please enter your full name");
+    //   return;
+    // }
 
     // const fullNameRegex = /^[a-zA-Z].*[\s\.]*$/;
 
@@ -38,18 +51,18 @@ const VotersRegistration = () => {
     // }
 
     // Validate token
-    const token = data.token.trim();
-    if(token === "") {
-      alert("Please enter your token");
-      return;
-    }
+    // const token = data.token.trim();
+    // if(token === "") {
+    //   alert("Please enter your token");
+    //   return;
+    // }
 
-    // Validate email
-    const email = data.email.trim();
-    if(email === "") {
-      alert("Please enter your email");
-      return;
-    }
+    // // Validate email
+    // const email = data.email.trim();
+    // if(email === "") {
+    //   alert("Please enter your email");
+    //   return;
+    // }
 
     // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     // if(!emailRegex.test(email)) {
@@ -63,23 +76,10 @@ const VotersRegistration = () => {
     // })
     //     .then(response => console.log(response.data))
     //     .catch(error => console.error(error));
-
-
-    const VoterLogin = async (votersList) => {
-        try{
-             const res = await axios.post("http://localhost:8080/api/v1/admin/confirmNonCandidateToken", votersList)
-             console.log(res.data);
-           }catch(error){
-             console.log(error);
-          };
-    }
-
-
-    VoterLogin(data)
-    console.log(data)
-
     
 
+    VoterLogin(data)
+    
     navigate("/VotersDashboard");
 
     

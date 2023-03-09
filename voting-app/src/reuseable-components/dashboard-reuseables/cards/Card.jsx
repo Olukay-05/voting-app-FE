@@ -46,9 +46,7 @@ const Card = ( { candidate, onRadioChange } ) => {
                         Vote for { fullName }
                     </label>
                 </div>
-            </div>
-
-           
+            </div>  
         </fieldset>
     </div>
   )

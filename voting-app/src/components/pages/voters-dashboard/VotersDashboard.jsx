@@ -35,17 +35,17 @@ const VotersDashboard = () => {
   };
 
 
-  const onSubmit = (e) => {
+  const submitId = () => {
+    console.log(selectedCandidateId)
 
-    e.preventDefault();
+    // const { data } = getFormValues(e.currentTarget);
 
-    const { data } = getFormValues(e.currentTarget);
+    // data.append("selectedCandidateId", selectedCandidateId);
 
-    data.append("selectedCandidateId", selectedCandidateId);
-
-    axios.post("http://localhost:8080/api/v1/voter/vote", data)
+    axios.post("http://localhost:8080/api/v2/voting/voting", {candidateId: selectedCandidateId})
     .then((response) => {
 
+      console.log(response);
         console.log(response.data);
 
         // Habeeb do whatever you need to do with the response
@@ -66,11 +66,7 @@ const VotersDashboard = () => {
         })
       }
 
-      <button
-       type="button"
-        onClick={ onSubmit }
-         className="member-btn"
-      >
+      <button type="button" onClick={ submitId } className="member-btn">
         PLACE YOUR VOTE
       </button>
             
