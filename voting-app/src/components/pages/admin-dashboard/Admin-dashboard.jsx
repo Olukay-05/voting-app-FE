@@ -17,8 +17,9 @@ const AdminRegistration = () => {
         try{
              const res = await axios.post("http://localhost:8080/api/v1/admin/candidate-addition", result)
              console.log(res.data);
+             alert("Candidate added successfully")
            }catch(error){
-             alert("Candidate Already Exist")
+            alert("Candidate exists")
           };
     }
 
@@ -26,7 +27,9 @@ const AdminRegistration = () => {
         try{
              const res = await axios.post("http://localhost:8080/api/v1/admin/nonCandidate-addition", votersList)
              console.log(res.data);
+             alert("Voter added successfully")
            }catch(error){
+              alert("Voter exists")  
              console.log(error);
           };
     }
@@ -79,9 +82,16 @@ const AdminRegistration = () => {
   return (
     <section className="register-page-full-page">
         <div>
-            <h3 onClick={selectCandiate}> Register Candidate</h3>
-            <h3 onClick={selectVoter}>Register Voter</h3>
+            <div className='canditate' onClick={selectCandiate}>
+                <h3 onClick={selectCandiate}> Register Candidate</h3>
+            </div>
+            
+            <div className='voter' onClick={selectVoter}>
+                <h3 onClick={selectVoter}>Register Voter</h3>
+            </div>
         </div>
+
+        <h2>ADMIN PORTAL</h2>
         {regVoter 
         ?
 

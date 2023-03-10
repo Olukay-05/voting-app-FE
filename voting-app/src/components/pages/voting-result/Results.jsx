@@ -1,11 +1,15 @@
 import React, { useEffect } from 'react'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import axios from 'axios'
+
+import Chart from "chart.js/auto";
+import "../voting-result/Results.css"
+
+
+
 
 const Results = () => {
     const [results, setResults] = useState([])
-
-    
     
   useEffect(() => {
 
@@ -21,6 +25,7 @@ const Results = () => {
     }, []);
 
 
+    // const chartElement = useChart(results);
 
   return (
     <div>
@@ -35,19 +40,39 @@ const Results = () => {
                         notice that the number of votes recorded for each Candidate
                         is as follows: 
                     </h3>
+                    <table>
+                        <thead>
+                            <tr>
+                            <th>Name of Candidate</th>
+                            <th>Total number of votes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {results.map((candidate, index) => (
+                            <tr key={index}>
+                                <td>{candidate.fullName}</td>
+                                <td>{candidate.noOfVotes} votes</td>
+                            </tr>
+                            ))}
+                        </tbody>
+                    </table>
 
-                    {
+                   
+
+                    {/* {
                         results.map((candidate) => {
                             return <p>{candidate.fullName} ----- {candidate.noOfVotes} votes</p>
                         })
-                    }
+                    } */}
                 </div>
 
                 <div className="card-body">
-                   
+                   {/* { chartElement } */}
                 </div>  
             </fieldset>
         </div>
+
+        
    </div>
   )
 }

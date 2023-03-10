@@ -8,6 +8,7 @@ import "../admin-dashboard/Admin-dashboard.css";
 const VotersRegistration = () => {
 
     const [isVoter, setIsVoter] = useState(false);
+    const [error, setError] = useState(true)
    // const [id, setId] = useState()
     const navigate = useNavigate();
 
@@ -17,9 +18,9 @@ const VotersRegistration = () => {
         try{
              const res = await axios.post("http://localhost:8080/api/v2/voting/nonCandidate", votersList)
             console.log(res)
+            setError(false)
 
            }catch(error){
-             alert("Invalid token or mail")
           };
     }
 
@@ -79,9 +80,9 @@ const VotersRegistration = () => {
     
 
     VoterLogin(data)
-    
-    navigate("/VotersDashboard");
-
+    if (!error){
+         navigate("/VotersDashboard");
+    }
     
   }  
 
@@ -90,7 +91,7 @@ const VotersRegistration = () => {
     <section className="register-page full-page">
         <form className="form" onSubmit={ onSubmit }>
 
-            <h3>{ isVoter ? "View Your Vote" : "Register to Vote" }</h3>
+            <h3>{ isVoter ? "View Your Vote" : "Vote" }</h3>
 
             {!isVoter && (
 
@@ -132,7 +133,7 @@ const VotersRegistration = () => {
                     </label>
                     <input
                         id="token"
-                        type="text"
+                        type="number"
                         name="token"
                         className="form-input"
                     />

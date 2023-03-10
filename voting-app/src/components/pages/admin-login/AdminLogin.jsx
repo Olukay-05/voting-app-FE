@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom"
 import axios from 'axios';
 
 import FormInput from '../../../reuseable-components/dashboard-reuseables/form-input/FormInput';
+import "../admin-login/AdminLogin.css"
+
 
 const AdminLogin = () => {
 
@@ -50,8 +52,10 @@ const AdminLogin = () => {
 
 
   return (
-    <div>
-      <form className="form">
+    <div className="form">
+      <form >
+
+        <h3>LOGIN TO ADMIN PORTAL</h3>
         <FormInput 
           label= "Admin Username"
           type="text"

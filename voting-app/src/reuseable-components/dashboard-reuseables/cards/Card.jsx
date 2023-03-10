@@ -19,17 +19,17 @@ const Card = ( { candidate, onRadioChange } ) => {
     <div className="card">
         <fieldset>
             <div>
-                <img 
+                {/* <img 
                     src={ imageUrl }
                     alt={ fullName }
                     className="card-img-top"
-                />
+                /> */}
             </div>
 
             <div className="card-body">
                 <h5 className="card-title">Name: { fullName }</h5>
-                <p className="card-text">id: { id }</p>
-                <p className="card-text">email: { email }</p>
+                {/* <p className="card-text">id: { id }</p> */}
+                {/* <p className="card-text">email: { email }</p> */}
                 <p className='card-text'>no of votes: { noOfVotes }</p>
                 <div className="form-check">
 

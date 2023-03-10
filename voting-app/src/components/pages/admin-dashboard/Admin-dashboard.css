@@ -103,6 +103,8 @@ h1 {
 
 h2 {
   font-size: 2.441rem;
+  position: absolute;
+  right: 475px;
 }
 
 h3 {
@@ -144,7 +146,57 @@ ul {
   object-fit: cover;
 }
 /* buttons */
+.canditate{
+  cursor: pointer;
+  color: var(--white);
+  background: var(--primary-500);
+  border: transparent;
+  border-radius: var(--borderRadius);
+  letter-spacing: var(--letterSpacing);
+  padding: 0.375rem 0.75rem;
+  box-shadow: var(--shadow-2);
+  transition: var(--transition);
+  text-transform: capitalize;
+  display: block;
+  margin-left: 100px;
+  margin-top: 100px;
+  
+}
 
+/* .canditate h3{
+  text-align: center;
+} */
+
+.canditate:hover{
+  background: var(--primary-700);
+  box-shadow: var(--shadow-3);
+}
+
+.voter{
+  cursor: pointer;
+  color: var(--white);
+  background: var(--primary-500);
+  border: transparent;
+  border-radius: var(--borderRadius);
+  letter-spacing: var(--letterSpacing);
+  padding: 0.375rem 0.75rem;
+  box-shadow: var(--shadow-2);
+  transition: var(--transition);
+  text-transform: capitalize;
+  display: inline-block;
+  margin-left: 100px;
+  margin-top: 100px;
+}
+
+.voter:hover{
+  background: var(--primary-700);
+  box-shadow: var(--shadow-3);
+}
+
+.canditate:hover{
+  background: var(--primary-700);
+  box-shadow: var(--shadow-3);
+}
 .btn {
   cursor: pointer;
   color: var(--white);
@@ -213,13 +265,13 @@ ul {
 }
 
 .form {
-  
   width: 90vw;
   max-width: var(--fixed-width);
   background: var(--white);
   border-radius: var(--borderRadius);
   box-shadow: var(--shadow-2);
   padding: 2rem 2.5rem;
+  /* margin-top: 20%; */
   margin: 3rem auto;
   transition: var(--transition);
 }
